@@ -28,6 +28,15 @@ O PoliLEG suporta as seguintes instruções:
 
 <img src="./images/instrucoes.png" width=612.5>
 
+### Formato das Instruções
+
+   - Formato-D para LDUR e STUR
+   - Formato-R para ADD, SUB, AND e ORR
+   - Formato-CB para CBZ
+   - Formato-B para B
+
+<img src="./images/formatos.png" width=612.5>
+
 ## Unidades Funcionais
 
 O PoliLEG é composto por várias unidades funcionais:
