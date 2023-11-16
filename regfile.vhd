@@ -35,7 +35,7 @@ ARCHITECTURE regfile_arc OF regfile IS
     TYPE reg_array IS ARRAY(0 TO reg_n - 1) OF bit_vector(word_s - 1 DOWNTO 0);
     SIGNAL out_data_signal : reg_array;
     SIGNAL data_signal : reg_array;
-    
+
     TYPE write_array IS ARRAY(0 TO reg_n - 1) OF BIT;
     SIGNAL write_signal : write_array;
 BEGIN

@@ -144,7 +144,7 @@ BEGIN
     imAddr <= qPC;
     dPC <= F_add4 WHEN pcSrc = '0' ELSE
         F_shiftleft2;
-        
+
     alu_internal_add4 : COMPONENT alu GENERIC MAP(size) PORT MAP(qPC, add4, F_add4, "0010", Z_add4, Ov_add4, Co_add4);
     minha_add_shift : COMPONENT alu GENERIC MAP(size) PORT MAP(qPC, o, F_shiftleft2, "0010", Z_shiftleft2, Ov_shiftleft2, Co_shiftleft2);
 END ARCHITECTURE datapath_arc;

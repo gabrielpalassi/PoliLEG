@@ -63,7 +63,7 @@ ARCHITECTURE polileg_arc OF polileg IS
             dmOut : IN bit_vector(63 DOWNTO 0)
         );
     END COMPONENT datapath;
-    
+
     SIGNAL reg2loc_signal : BIT;
     SIGNAL uncondBranch_signal : BIT;
     SIGNAL branch_signal : BIT;
@@ -89,33 +89,33 @@ BEGIN
             regWrite => regWrite_signal,
             opcode => opcode_signal
         );
-    datapath_internal : COMPONENT datapath
-        PORT MAP(
-            clock => clock,
-            reset => reset,
-            --From Control Unit
-            reg2loc => reg2loc_signal,
-            pcsrc => pcsrc_signal,
-            memToReg => memToReg_signal,
-            aluCtrl => aluCtrl_signal,
-            aluSrc => aluSrc_signal,
-            regWrite => regWrite_signal,
-            --To Control Unit:
-            opcode => opcode_signal,
-            zero => zero_signal,
-            --Instruction Memory Interface
-            imAddr => imem_addr,
-            imOut => imem_data,
-            --Data Memory Interface
-            dmAddr => dmem_addr,
-            dmIn => dmem_dati,
-            dmOut => dmem_dato
-        );
-    pcsrc_signal <= (uncondBranch_signal OR (branch_signal AND zero_signal));
-    alucontrol_internal : COMPONENT alucontrol
-        PORT MAP(
-            aluop => aluOp_signal,
-            opcode => opcode_signal,
-            aluCtrl => aluCtrl_signal
-        );
-END ARCHITECTURE polileg_arc;
+        datapath_internal : COMPONENT datapath
+            PORT MAP(
+                clock => clock,
+                reset => reset,
+                --From Control Unit
+                reg2loc => reg2loc_signal,
+                pcsrc => pcsrc_signal,
+                memToReg => memToReg_signal,
+                aluCtrl => aluCtrl_signal,
+                aluSrc => aluSrc_signal,
+                regWrite => regWrite_signal,
+                --To Control Unit:
+                opcode => opcode_signal,
+                zero => zero_signal,
+                --Instruction Memory Interface
+                imAddr => imem_addr,
+                imOut => imem_data,
+                --Data Memory Interface
+                dmAddr => dmem_addr,
+                dmIn => dmem_dati,
+                dmOut => dmem_dato
+            );
+            pcsrc_signal <= (uncondBranch_signal OR (branch_signal AND zero_signal));
+            alucontrol_internal : COMPONENT alucontrol
+                PORT MAP(
+                    aluop => aluOp_signal,
+                    opcode => opcode_signal,
+                    aluCtrl => aluCtrl_signal
+                );
+            END ARCHITECTURE polileg_arc;
