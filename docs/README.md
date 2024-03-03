@@ -8,24 +8,6 @@ Especificado em VHDL, o PoliLEG é um processador de arquitetura Harvard de cicl
 
 O PoliLEG suporta as seguintes instruções:
 
-1. **Load Register Unscaled (LDUR)**:
-   - Exemplo: LDUR X1, [X2, 40]  (X1 = Memory[X2 + 40])
-
-2. **Store Register Unscaled (STUR)**:
-   - Exemplo: STUR X1, [X2, 40]  (Memory[X2 + 40] = X1)
-
-3. **Instruções Lógico-Aritméticas**:
-   - ADD X1, X2, X3  (X1 = X2 + X3)
-   - SUB X1, X2, X3  (X1 = X2 - X3)
-   - AND X1, X2, X3  (X1 = X2 & X3)
-   - ORR X1, X2, X3  (X1 = X2 | X3)
-
-4. **Compare and Branch Zero (CBZ)**:
-   - Exemplo: CBZ X1, 25  (if (X1 == 0) goto PC + 100)
-
-5. **Branch (B)**:
-   - Exemplo: B 2500  (goto PC + 10000)
-
 <img src="./images/instrucoes.png" width=612.5>
 
 ### Formato das Instruções
