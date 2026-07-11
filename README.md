@@ -1,8 +1,14 @@
 # 🖥️ PoliLEG
 
-A processor can be viewed as a design based on the control-unit and datapath paradigm. The control unit is responsible for the fetch, decode, execute, and write-back cycle that governs a programmable, general-purpose computer. The datapath consists of memory elements (such as a register file), flow-control components (which are usually combinational), and functional units.
+PoliLEG is a VHDL implementation of the LEGv8 processor subset introduced by Hennessy and Patterson. It uses a single-cycle Harvard architecture, with separate instruction and data memories, and completes every instruction in one clock cycle.
 
-Specified in VHDL, PoliLEG is a single-cycle Harvard-architecture processor designed to execute one instruction per clock cycle. It implements a subset of the ARMv8 instruction set (the LEGv8 subset presented by Hennessy and Patterson).
+The project implements the complete datapath and control path, including the program counter, register file, ALU, immediate-generation and branch logic, and memory interfaces.
+
+## Processor Paradigm
+
+PoliLEG follows the classic separation between a **datapath** and a **control unit**. The datapath stores and transforms values through components such as the program counter, register file, ALU, memories, sign-extension unit, and multiplexers. The control unit decodes each instruction and generates the signals that select the required operation and route data through those components.
+
+Together, these two parts perform the instruction cycle: fetch, decode, execute, memory access, and write-back. Because PoliLEG is a single-cycle processor, the entire cycle is completed within one clock period. This keeps the control logic straightforward, although the clock period must be long enough for the slowest supported instruction to finish.
 
 ## Supported Instructions
 
